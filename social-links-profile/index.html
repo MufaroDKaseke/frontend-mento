@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Social links profile</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    
+    :root {
+      --primary: #a6cc35;
+      --secondary: darkgrey;
+      --grey1: #141414;
+      --grey2: #1f1f1f;
+      --grey3: #333333;
+      --white: #ffffff;
+      --black: #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-weight: 700;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      font-size: .8rem;
+    }
+    
+    @font-face {
+      font-family: 'Inter-VariableFont';
+      src: url('./assets/fonts/Inter-VariableFont_slnt,wght.ttf');
+    }
+
+    body {
+      background-color: var(--grey1);
+      color: var(--white);
+      font-family: 'Inter-VariableFont', sans-serif;
+      font-size: .95rem;
+    }
+
+    main {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .container {
+      background-color: var(--grey2);
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    @media screen and (min-width: 720px) {
+      .container {
+        width: 25%;
+      }
+    }
+
+    .profile-img {
+      width: 35%;
+      border-radius: 50%;
+      margin-bottom: 1.25rem;
+    }
+
+    .profile-location {
+      color: var(--primary);
+    }
+
+    .profile-links {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .profile-links li {
+      margin-top: .5rem;
+    }
+
+    .profile-links li a {
+      background-color: var(--grey3);
+      width: 100%;
+      display: block;
+      padding: .5rem;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+
+    .profile-links li a:hover, a.active {
+      background: var(--primary);
+      color: var(--grey3);
+      transition: all .5s ease-in-out
+    }
+
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="container">
+      <img src="./assets/images/avatar-jessica.jpeg" alt="Jessica Randall" class="profile-img">
+      <h1>Jessica Randall</h1>
+      <h5 class="profile-location">London, United Kingdom</h5>
+      <p>"Front-end developer and avid reader."</p>
+      <ul class="profile-links">
+        <li>
+          <a href="#">Github</a>
+        </li>
+        <li>
+          <a href="#">Frontend Mentor</a>
+        </li>
+        <li>
+          <a href="#">LinkedIn</a>
+        </li>
+        <li>
+          <a href="#">Twitter</a>
+        </li>
+        <li>
+          <a href="#">Instagram</a>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  Jessica Randall
+  London, United Kingdom
+  "Front-end developer and avid reader."
+
+  GitHub
+  Frontend Mentor
+  LinkedIn
+  Twitter
+  Instagram
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
