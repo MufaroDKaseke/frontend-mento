@@ -3,59 +3,337 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Mortgage repayment calculator</title>
-
+  
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    
+    :root {
+      --primary: #D1DA4E;
+      --secondary: #0E2431;
+      --color1: #D1DA4E;
+      --color2: #E3F4FC;
+      --color3: #133040;
+      --color4: #0E2431;
+      --white: #ffffff;
+      --black: #000000;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    @font-face {
+      font-family: "PlusJakartaSans";
+      src: url('./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+    }
+    
+    /* Utility */
+    
+    h1, h2, h3, h4, h5 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: var(--primary);
+    }
+    
+    .d-flex {
+      display: flex;
+    }
+    
+    .w-50 {
+      width: 50%;
+    }
+
+    input {
+      font-weight: bold;
+      padding: 0 .5rem;
+      font-size: 1rem;
+    }
+
+    input:focus, input:focus-visible {
+      outline: none;
+    }
+
+    button {
+      background: var(--primary);
+      text-align: center;
+      font-weight: bold;
+      border: none;
+      padding: .75rem 1rem;
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+      font-size: .9rem;
+    }
+
+    button:hover {
+
+    }
+    
+    body {
+      background-color: var(--color2);
+      font-family: "PlusJakartaSans", sans-serif;
+      margin: 0
+      ;
+    }
+    
+    main {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color2);
+    }
+    
+    .container {
+      display: flex;
+      width: 55%;
+      background-color: var(--white);
+      border-radius: 1rem;
+    }
+    
+    .left, .right {
+      padding: 1.5rem;
+      width: 50%;
+    }
+    
+    .left {
+      color: var(--secondary);
+      background-color: var(--white);
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+    
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      background-color: var(--color3);
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      border-bottom-left-radius: 2rem;
+    }
+    
+    .right p {
+      color: var(--color2);
+    }
+    
+    .right .results {
+      width: 100%;
+      background-color: var(--color4);
+      border-top: 3px solid var(--primary);
+      border-radius: .25rem;
+      padding: 1rem 1.5rem;
+      text-align: left;
+    }
+    
+    .right .results h1 {
+      color: var(--primary);
+    }
+    
+    .right .results p {
+      font-size: 80%;
+    }
+    
+    .right .results hr {
+      opacity: .5;
+      margin: 1.5rem 0;
+    }
+    
+    
+    @media screen and (max-width: 500px) {
+      
+      main {
+        justify-content: baseline;
+        align-items: baseline;
+      }
+      
+      .container {
+        width: 100%;
+        flex-direction: column;
+      }
+      
+      .left, .right {
+        width: 100%;
+        border-radius: 0;
+      }
+    }
+    
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .form-header #btnClear {
+      text-decoration: underline;
+    }
+    
+    /* Inputs */
+    .input-group, .btn-radio {
+      display: flex;
+      border: 2px solid var(--color3);
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: .35rem;
+      margin-bottom: 1rem;
+    }
+    
+    .input-group:hover, .input-group:focus-within, .btn-radio:hover, .btn-radio:focus-within {
+      border: 2px solid var(--primary);
+    }
+    
+    .input-group .input-group-text {
+      color: var(--color3);
+      background-color: var(--color2);
+      padding: .5rem;
+    }
+    
+    .input-group input {
+      width: 100%;
+      border: none;
+    }
+    
+    .btn-radio {
+      width: 100%;
+      padding: .5rem;
+    }
+    
+    .btn-radio input[type=radio] {
+      margin: 0 .5rem;
+    }
+    
+    .btn-radio:hover input[type=radio] {
+      color: var(--primary);
+    }
+    
+    form label {
+      width: 100%;
+      margin-bottom: .5rem;
+      display: inline-block;
+      font-size: .9rem;
+    }
+
+    button[type=submit] {}
+
+    button[type=submit] img {
+      width: auto;
+      height: 1rem;
+      margin: 0 .5rem;
+    }
   </style>
 </head>
 <body>
-
-  Mortgage Calculator
-  Clear All
-
-  Mortgage Amount
-
-  Mortgage Term
-
-  Interest Rate
-
-  Mortgage Type
-  Repayment
-  Interest Only
-
-  Calculate Repayments
-
-  <!-- Empty results start -->
-
-  Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be.
-
-  <!-- Empty results end -->
-
-  <!-- Completed results start -->
-
-  Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term
-
-  <!-- Completed results end -->
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
-</html>
+  <main>
+    <div class="container">
+      <div class="left">
+        <div class="form-header">
+          <h4>Mortgage Calculator</h4>
+          <span id="btnClear"></span>
+        </div>
+        <form action="">
+          <label for="amount">Mortgage Amount</label>
+          <div class="input-group">
+            <div class="input-group-text">
+              $
+            </div>
+            <input type="number" name="amount" id="amount" placeholder="300,000">
+          </div>
+          <div class="d-flex" style="gap: 1rem;">
+            <div class="w-50">
+              <label for="term">Mortgage Term</label>
+              <div class="input-group">
+                <input type="number" name="term" id="term" placeholder="300,000">
+                <div class="input-group-text">
+                  years
+                </div>
+              </div>
+            </div>
+            <div class="w-50">
+              <label for="rate">Interest Rate</label>
+              <div class="input-group">
+                <input type="number" name="rate" id="rate" placeholder="300,000">
+                <div class="input-group-text">
+                  %
+                </div>
+              </div>
+            </div>
+          </div>
+          <label for="type">Mortgage Type</label>
+          <div class="btn-radio">
+            <input type="radio" name="type">
+            Repayment
+          </div>
+          <div class="btn-radio">
+            <input type="radio" name="type">
+            Interest Only
+          </div>
+          <button type="submit"><img src="./assets/images/icon-calculator.svg" alt="">Calculate Repayments</button>
+        </form>
+      </div>
+      <div class="right">
+        <img src="./assets/images/illustration-empty.svg" alt="" width="30%" height="auto">
+        <h3>Results Shown Here</h3>
+        <p>Complete the form and click “calculate repayments” to see what
+          your monthly repayments would be.</p>
+          <div class="results">
+            <p>Your monthly repayments</p>
+            <h1>$1,797.74</h1>
+            <hr>
+            <p>Total you'll repay over the term</p>
+            <h2>$539,322.94</h2>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    Mortgage Calculator
+    Clear All
+    
+    Mortgage Amount
+    
+    Mortgage Term
+    
+    Interest Rate
+    
+    Mortgage Type
+    Repayment
+    Interest Only
+    
+    Calculate Repayments
+    
+    <!-- Empty results start -->
+    
+    Results shown here
+    
+    Complete the form and click “calculate repayments” to see what 
+    your monthly repayments would be.
+    
+    <!-- Empty results end -->
+    
+    <!-- Completed results start -->
+    
+    Your results
+    
+    Your results are shown below based on the information you provided. 
+    To adjust the results, edit the form and click “calculate repayments” again.
+    
+    Your monthly repayments
+    
+    Total you'll repay over the term
+    
+    <!-- Completed results end -->
+    
+    
+  </body>
+  </html>
